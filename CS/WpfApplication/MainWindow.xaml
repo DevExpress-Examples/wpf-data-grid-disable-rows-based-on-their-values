@@ -1,25 +1,19 @@
-<Window 
-        x:Class="WpfApplication.MainWindow"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
-    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
-    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
-    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
-    xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:WpfApplication"
-    Title="MainWindow" Height="520" Width="1000"               
-        DataContext="{dxmvvm:ViewModelSource Type={x:Type local:ViewModel}}">
-    <Grid>
+<Window x:Class="WpfApplication.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+        xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+        xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+        xmlns:local="clr-namespace:WpfApplication"
+        Title="MainWindow" Height="520" Width="1000">
 
-        <Grid.Resources>
-            <ResourceDictionary>
-                <ResourceDictionary.MergedDictionaries>
-                    <ResourceDictionary Source="Dictionary.xaml"/>
-                </ResourceDictionary.MergedDictionaries>
-            </ResourceDictionary>
-        </Grid.Resources>
-        
+    <Window.DataContext>
+        <local:MainViewModel/>
+    </Window.DataContext>
+
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -29,49 +23,40 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <dxlc:DataLayoutControl Grid.Row="0"
-                                Grid.ColumnSpan="2"
+        <dxlc:DataLayoutControl Grid.Row="0" Grid.ColumnSpan="2"
                                 Orientation="Horizontal"
-                                CurrentItem="{Binding Path=CurrentItem}"/>
+                                CurrentItem="{Binding CurrentItem}"/>
 
-        <GroupBox Header="The ShowingEditor event"
-                  Grid.Row="1"
-                  Grid.Column="0">
-            <dxg:GridControl Name="gridControl1"
-                             CurrentItem="{Binding Path=CurrentItem}"
-                             ItemsSource="{Binding Items}">
-                <dxg:GridControl.Columns>
-                    <dxg:GridColumn FieldName="ID"/>
-                    <dxg:GridColumn FieldName="Name"/>
-                </dxg:GridControl.Columns>
+        <GroupBox Grid.Row="1" Grid.Column="0"
+                  Padding="5" Margin="5"
+                  Header="The ShowingEditor event">
+            <dxg:GridControl ItemsSource="{Binding Items}"
+                             CurrentItem="{Binding CurrentItem}"
+                             AutoGenerateColumns="AddNew">
                 <dxg:GridControl.View>
-                    <dxg:TableView ShowingEditor="tableView1_ShowingEditor">
-                        
-                        <!--===========================-->
-                        <!--Just to highlight read-only cells-->
+                    <dxg:TableView>
+                        <dxmvvm:Interaction.Behaviors>
+                            <local:EditorBehavior/>
+                        </dxmvvm:Interaction.Behaviors>
+
                         <dxg:TableView.FormatConditions>
                             <dxg:FormatCondition Expression="![AllowEdit]">
                                 <dxg:FormatCondition.Format>
-                                    <dx:Format Foreground="Gray" Background="LightGray" />
+                                    <dx:Format Foreground="Gray" Background="LightGray"/>
                                 </dxg:FormatCondition.Format>
                             </dxg:FormatCondition>
                         </dxg:TableView.FormatConditions>
-                        <!--===========================-->
-
                     </dxg:TableView>
                 </dxg:GridControl.View>
             </dxg:GridControl>
         </GroupBox>
 
-        <GroupBox Header="The IsReadOnly property"
-                  Grid.Row="1"
-                  Grid.Column="1">
-            <dxg:GridControl CurrentItem="{Binding Path=CurrentItem}"
-                             ItemsSource="{Binding Items}">
-                <dxg:GridControl.Columns>
-                    <dxg:GridColumn FieldName="ID"/>
-                    <dxg:GridColumn FieldName="Name"/>
-                </dxg:GridControl.Columns>
+        <GroupBox Grid.Row="1" Grid.Column="1"
+                  Padding="5" Margin="5"
+                  Header="The IsReadOnly property">
+            <dxg:GridControl ItemsSource="{Binding Items}"
+                             CurrentItem="{Binding CurrentItem}"
+                             AutoGenerateColumns="AddNew">
                 <dxg:GridControl.View>
                     <dxg:TableView>
                         <dxg:TableView.CellTemplate>
@@ -81,21 +66,16 @@
                             </DataTemplate>
                         </dxg:TableView.CellTemplate>
 
-                        <!--===========================-->
-                        <!--Just to highlight read-only cells-->
                         <dxg:TableView.FormatConditions>
                             <dxg:FormatCondition Expression="![AllowEdit]">
                                 <dxg:FormatCondition.Format>
-                                    <dx:Format Foreground="Gray" Background="LightGray" />
+                                    <dx:Format Foreground="Gray" Background="LightGray"/>
                                 </dxg:FormatCondition.Format>
                             </dxg:FormatCondition>
                         </dxg:TableView.FormatConditions>
-                        <!--===========================-->
-                        
                     </dxg:TableView>
                 </dxg:GridControl.View>
             </dxg:GridControl>
         </GroupBox>
-
     </Grid>
 </Window>
