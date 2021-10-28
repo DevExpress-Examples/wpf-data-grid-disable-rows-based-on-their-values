@@ -4,10 +4,9 @@
         xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
         xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
-        xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
         xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
         xmlns:local="clr-namespace:WpfApplication"
-        Title="MainWindow" Height="520" Width="1000">
+        Title="MainWindow" Height="500" Width="1000">
 
     <Window.DataContext>
         <local:MainViewModel/>
@@ -22,10 +21,6 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-
-        <dxlc:DataLayoutControl Grid.Row="0" Grid.ColumnSpan="2"
-                                Orientation="Horizontal"
-                                CurrentItem="{Binding CurrentItem}"/>
 
         <GroupBox Grid.Row="1" Grid.Column="0"
                   Padding="5" Margin="5"
