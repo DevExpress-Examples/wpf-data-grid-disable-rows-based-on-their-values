@@ -8,11 +8,11 @@ Namespace WpfApplication
 
         Protected Overrides Sub OnAttached()
             MyBase.OnAttached()
-            AddHandler AssociatedObject.ShowingEditor, AddressOf OnEditorShowing
+            AssociatedObject.ShowingEditor += AddressOf OnEditorShowing
         End Sub
 
         Protected Overrides Sub OnDetaching()
-            RemoveHandler AssociatedObject.ShowingEditor, AddressOf OnEditorShowing
+            AssociatedObject.ShowingEditor -= AddressOf OnEditorShowing
             MyBase.OnDetaching()
         End Sub
 
