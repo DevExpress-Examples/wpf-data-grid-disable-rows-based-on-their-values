@@ -36,7 +36,7 @@
                 <dxg:GridControl.View>
                     <dxg:TableView>
                         <dxmvvm:Interaction.Behaviors>
-                            <local:EditorBehavior/>
+                            <local:DisableRowBehavior/>
                         </dxmvvm:Interaction.Behaviors>
 
                         <dxg:TableView.FormatConditions>
