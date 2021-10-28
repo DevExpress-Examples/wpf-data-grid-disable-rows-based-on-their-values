@@ -38,20 +38,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Pdf.v21.1.Core" />
-    <Reference Include="DevExpress.Office.v21.1.Core" />
-    <Reference Include="DevExpress.RichEdit.v21.1.Core" />
-    <Reference Include="DevExpress.RichEdit.v21.1.Export" />
-    <Reference Include="DevExpress.Printing.v21.1.Core" />
+    <Reference Include="DevExpress.Data.Desktop.v21.1" />
     <Reference Include="DevExpress.Data.v21.1" />
     <Reference Include="DevExpress.Mvvm.v21.1" />
-    <Reference Include="DevExpress.Xpf.CodeView.v21.1" />
-    <Reference Include="DevExpress.Data.Desktop.v21.1" />
+    <Reference Include="DevExpress.Printing.v21.1.Core" />
     <Reference Include="DevExpress.Xpf.Core.v21.1" />
     <Reference Include="DevExpress.Xpf.Grid.v21.1" />
     <Reference Include="DevExpress.Xpf.Grid.v21.1.Core" />
-    <Reference Include="DevExpress.Xpf.LayoutControl.v21.1" />
-    <Reference Include="DevExpress.Xpf.Printing.v21.1" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -74,7 +67,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="EditorBehavior.vb" />
+    <Compile Include="DisableRowBehavior.vb" />
     <Compile Include="MainViewModel.vb" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

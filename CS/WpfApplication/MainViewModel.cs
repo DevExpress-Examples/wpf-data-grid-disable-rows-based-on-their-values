@@ -5,12 +5,12 @@ using System.Linq;
 namespace WpfApplication {
     public class MainViewModel : ViewModelBase {
         public ObservableCollection<Item> Items {
-            get => GetValue<ObservableCollection<Item>>();
-            set => SetValue(value);
+            get { return GetValue<ObservableCollection<Item>>(); }
+            set { SetValue(value); }
         }
         public Item CurrentItem {
-            get => GetValue<Item>();
-            set => SetValue(value);
+            get { return GetValue<Item>(); }
+            set { SetValue(value); }
         }
 
         public MainViewModel() {
@@ -26,16 +26,16 @@ namespace WpfApplication {
 
     public class Item : BindableBase {
         public string Name {
-            get => GetValue<string>();
-            set => SetValue(value);
+            get { return GetValue<string>(); }
+            set { SetValue(value); }
         }
         public int ID {
-            get => GetValue<int>();
-            set => SetValue(value);
+            get { return GetValue<int>(); }
+            set { SetValue(value); }
         }
         public bool AllowEdit {
-            get => GetValue<bool>();
-            set => SetValue(value);
+            get { return GetValue<bool>(); }
+            set { SetValue(value); }
         }
     }
 }
