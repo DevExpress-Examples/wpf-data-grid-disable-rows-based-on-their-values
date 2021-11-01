@@ -8,7 +8,7 @@
 
 * **[MainWindow.xaml](./CS/WpfApplication/MainWindow.xaml) (VB: [MainWindow.xaml](./VB/WpfApplication/MainWindow.xaml))**
 * [MainWindow.xaml.cs](./CS/WpfApplication/MainWindow.xaml.cs) (VB: [MainWindow.xaml.vb](./VB/WpfApplication/MainWindow.xaml.vb))
-* [ViewModel.cs](./CS/WpfApplication/ViewModel.cs) (VB: [ViewModel.vb](./VB/WpfApplication/ViewModel.vb))
+* [MainViewModel.cs](./CS/WpfApplication/MainViewModel.cs) (VB: [MainViewModel.vb](./VB/WpfApplication/MainViewModel.vb))
 * [DisableRowBehavior.cs](./CS/WpfApplication/DisableRowBehavior.cs) (VB: [DisableRowBehavior.vb](./VB/WpfApplication/DisableRowBehavior.vb))
 <!-- default file list end -->
 
