@@ -3,21 +3,36 @@
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/E3594)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
-<!-- default file list -->
-*Files to look at*:
 
-* **[MainWindow.xaml](./CS/WpfApplication/MainWindow.xaml) (VB: [MainWindow.xaml](./VB/WpfApplication/MainWindow.xaml))**
-* [MainWindow.xaml.cs](./CS/WpfApplication/MainWindow.xaml.cs) (VB: [MainWindow.xaml.vb](./VB/WpfApplication/MainWindow.xaml.vb))
-* [MainViewModel.cs](./CS/WpfApplication/MainViewModel.cs) (VB: [MainViewModel.vb](./VB/WpfApplication/MainViewModel.vb))
-* [DisableRowBehavior.cs](./CS/WpfApplication/DisableRowBehavior.cs) (VB: [DisableRowBehavior.vb](./VB/WpfApplication/DisableRowBehavior.vb))
-<!-- default file list end -->
-
-# How to disable rows in GridControl based on their values
+# WPF Data Grid - Disable Rows Based on Their Values
 
 To disable a row, use either of the following ways:
 
 1. In **v20.2** and newer, use [BaseColumn.IsReadOnlyBinding](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.BaseColumn.IsReadOnlyBinding) or [BaseColumn.IsEnabledBinding](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.BaseColumn.IsEnabledBinding) as we illustrated in this example: [Read-Only and Enabled State Binding](https://github.com/DevExpress-Examples/wpf-grid-read-only-and-enabled-binding).
-2. Handle the [ShowingEditor](http://documentation.devexpress.com/#WPF/DevExpressXpfGridGridViewBase_ShowingEditortopic) event and set the **e.Cancel** property to `True` in the event handler.
-3. Bind the editor's **IsReadOnly** property inside **CellTemplate** (supported starting with version **15.2**).
+2. Handle the [ShowingEditor](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.GridViewBase.ShowingEditor) event and set the [e.Cancel](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.ShowingEditorEventArgsBase.Cancel) property to **True** in the event handler.
+3. Bind the editor's [IsReadOnly](https://docs.devexpress.com/WPF/DevExpress.Xpf.Editors.BaseEdit.IsReadOnly) property inside [CellTemplate](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.DataViewBase.CellTemplate) (supported starting with **v15.2**).
 
 The solutions from points 2 and 3 are demonstrated in this sample project.
+
+![image](https://user-images.githubusercontent.com/65009440/141788896-6b0ff660-4d4c-4245-acbd-762f55b46ca5.png)
+
+<!-- default file list -->
+
+## Files to Look At
+
+* [MainWindow.xaml](./CS/WpfApplication/MainWindow.xaml) (VB: [MainWindow.xaml](./VB/WpfApplication/MainWindow.xaml))
+* [DisableRowBehavior.cs](./CS/WpfApplication/DisableRowBehavior.cs) (VB: [DisableRowBehavior.vb](./VB/WpfApplication/DisableRowBehavior.vb))
+
+<!-- default file list end -->
+
+## Documentation
+
+- [Disable Editing](https://docs.devexpress.com/WPF/401043/controls-and-libraries/data-grid/data-editing-and-validation/modify-cell-values/disable-editing)
+- [Data Editing and Validation](https://docs.devexpress.com/WPF/6108/controls-and-libraries/data-grid/data-editing-and-validation)
+- [GridViewBase.ShowingEditor](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.GridViewBase.ShowingEditor)
+- [BaseEdit.IsReadOnly](https://docs.devexpress.com/WPF/DevExpress.Xpf.Editors.BaseEdit.IsReadOnly)
+
+## More Examples
+
+- [WPF Data Grid - Read-Only and Enabled State Binding](https://github.com/DevExpress-Examples/wpf-grid-read-only-and-enabled-binding)
+- [WPF Data Grid - How to Use Custom Editors to Edit Cell Values](https://github.com/DevExpress-Examples/how-to-use-custom-editors-to-edit-cell-values-e1596)
