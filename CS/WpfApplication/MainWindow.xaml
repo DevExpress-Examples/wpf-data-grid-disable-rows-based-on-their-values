@@ -12,6 +12,13 @@
         <local:MainViewModel/>
     </Window.DataContext>
 
+    <Window.Resources>
+        <DataTemplate x:Key="readOnlyTemplate">
+            <dxe:TextEdit Name="PART_Editor"
+                          IsReadOnly="{Binding Path=RowData.Row.AllowEdit, Converter={dxmvvm:BooleanNegationConverter}}"/>
+        </DataTemplate>
+    </Window.Resources>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -52,15 +59,14 @@
             <dxg:GridControl ItemsSource="{Binding Items}"
                              CurrentItem="{Binding CurrentItem}"
                              AutoGenerateColumns="AddNew">
+                <dxg:GridControl.Columns>
+                    <dxg:GridColumn FieldName="Name" CellTemplate="{StaticResource readOnlyTemplate}"/>
+                    <dxg:GridColumn FieldName="ID" CellTemplate="{StaticResource readOnlyTemplate}"/>
+                    <dxg:GridColumn FieldName="AllowEdit"/>
+                </dxg:GridControl.Columns>
+                
                 <dxg:GridControl.View>
                     <dxg:TableView>
-                        <dxg:TableView.CellTemplate>
-                            <DataTemplate>
-                                <dxe:TextEdit Name="PART_Editor"
-                                              IsReadOnly="{Binding Path=RowData.Row.AllowEdit, Converter={dxmvvm:BooleanNegationConverter}}"/>
-                            </DataTemplate>
-                        </dxg:TableView.CellTemplate>
-
                         <dxg:TableView.FormatConditions>
                             <dxg:FormatCondition Expression="![AllowEdit]">
                                 <dxg:FormatCondition.Format>
