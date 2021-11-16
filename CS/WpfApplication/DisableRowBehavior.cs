@@ -13,7 +13,8 @@ namespace WpfApplication {
         }
 
         void OnEditorShowing(object sender, ShowingEditorEventArgs e) {
-            e.Cancel = !(AssociatedObject.DataControl.CurrentItem as Item).AllowEdit;
+            if(e.Column.FieldName != nameof(Item.AllowEdit))
+                e.Cancel = !(AssociatedObject.DataControl.CurrentItem as Item).AllowEdit;
         }
     }
 }
