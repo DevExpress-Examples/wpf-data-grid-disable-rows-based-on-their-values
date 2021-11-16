@@ -8,9 +8,9 @@
 
 To disable a row, use any of the following ways:
 
-1. (**v20.2** and newer) Use [BaseColumn.IsReadOnlyBinding](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.BaseColumn.IsReadOnlyBinding) or [BaseColumn.IsEnabledBinding](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.BaseColumn.IsEnabledBinding) as shown in this example: [Read-Only and Enabled State Binding](https://github.com/DevExpress-Examples/wpf-grid-read-only-and-enabled-binding).
-2. Handle the [ShowingEditor](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.GridViewBase.ShowingEditor) event and set the [e.Cancel](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.ShowingEditorEventArgsBase.Cancel) property to **True** in the event handler.
-3. Use the [CellTemplate](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.DataViewBase.CellTemplate) property to bind the editor's [IsReadOnly](https://docs.devexpress.com/WPF/DevExpress.Xpf.Editors.BaseEdit.IsReadOnly) property to a data source field.
+* (**v20.2** and newer) Use [BaseColumn.IsReadOnlyBinding](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.BaseColumn.IsReadOnlyBinding) or [BaseColumn.IsEnabledBinding](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.BaseColumn.IsEnabledBinding) as shown in this example: [Read-Only and Enabled State Binding](https://github.com/DevExpress-Examples/wpf-grid-read-only-and-enabled-binding).
+* Handle the [ShowingEditor](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.GridViewBase.ShowingEditor) event and set the [e.Cancel](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.ShowingEditorEventArgsBase.Cancel) property to **True** in the event handler.
+* Use the [CellTemplate](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.DataViewBase.CellTemplate) property to bind the editor's [IsReadOnly](https://docs.devexpress.com/WPF/DevExpress.Xpf.Editors.BaseEdit.IsReadOnly) property to a data source field.
 
 This example demonstrates the difference between the last two options. In the left GridControl, users cannot open editors of the disabled cells. In the right GridControl, users can open read-only cell editors to copy their values to the clipboard only.
 
