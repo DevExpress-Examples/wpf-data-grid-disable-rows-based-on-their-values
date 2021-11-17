@@ -17,7 +17,7 @@ Namespace WpfApplication
         End Sub
 
         Private Sub OnEditorShowing(ByVal sender As Object, ByVal e As ShowingEditorEventArgs)
-            e.Cancel = Not TryCast(AssociatedObject.DataControl.CurrentItem, Item).AllowEdit
+            If Not Equals(e.Column.FieldName, NameOf(Item.AllowEdit)) Then e.Cancel = Not TryCast(AssociatedObject.DataControl.CurrentItem, Item).AllowEdit
         End Sub
     End Class
 End Namespace
