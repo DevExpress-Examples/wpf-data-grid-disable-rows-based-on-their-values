@@ -10,11 +10,11 @@ Namespace WpfApplication
         Inherits Window
 
         Public Sub New()
-            InitializeComponent()
+            Me.InitializeComponent()
         End Sub
 
         Private Sub tableView1_ShowingEditor(ByVal sender As Object, ByVal e As ShowingEditorEventArgs)
-            e.Cancel = Not TryCast(gridControl1.CurrentItem, GridItem).AllowEdit
+            e.Cancel = Not TryCast(Me.gridControl1.CurrentItem, GridItem).AllowEdit
         End Sub
     End Class
 End Namespace
